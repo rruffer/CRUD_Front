@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="produtosApp">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Desenvolvendo Aplicações Web com AngularJS e Java</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet"
+	   href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	  rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body ng-controller="ProdutosController">
+	<div class="container">
+		<!-- Cadastro -->
+		<form>
+			<h1>Cadastro</h1>
+			<!--     	<label for="codigo">Código: </label>
+    	<input id="codigo" name="codigo" type="text" ng-model="produto.id">
+    	<br> -->
+    	<div class="input-field col s6">
+			<label for="descricao">Descrição </label> 
+			<input id="descricao" name="descricao" type="text" ng-model="produto.descricao"> 
+			</div>
+			<br>
+    	<div class="input-field col s6">
+			<label for="preco">Preço </label> 
+			<input id="preco" name="preco" type="text" ng-model="produto.preco"> 
+			</div>
+			<br> 
+			<br>
+			<button class="btn waves-effect waves-light" ng-click="salvar(produto)">
+				Salvar <i class="material-icons right">save</i>
+			</button>
+			<button class="waves-effect waves-teal btn" ng-click="cancelar()">
+				Cancelar <i class="material-icons right">cancel</i>
+			</button>
+			<br> <br>
+
+			<!-- Tabela de preços -->
+			<div class="card-panel box-shadow">
+				<h1>Tabela de preços</h1>
+				<table class="centered responsive-table">
+					<thead>
+						<tr>
+							<th>Código</th>
+							<th>Descrição</th>
+							<th>Preço</th>
+							<th>Opções</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="produto in produtos track by $index">
+							<td ng-dblclick="editar(produto)">{{produto.id}}</td>
+							<td ng-dblclick="editar(produto)">{{produto.descricao}}</td>
+							<td ng-dblclick="editar(produto)">{{produto.preco}}</td>
+							<td><a href="" class="tooltipped" data-position="top"
+								data-delay="50" data-tooltip="Editar Produto"
+								ng-click="editar(produto)"> <i class="material-icons">edit</i>
+							</a> <a href="" class="tooltipped" data-position="top"
+								data-tooltip="Excluir Produto"
+								ng-click="excluir(produto)"> <i class="material-icons">delete</i>
+								</a>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+
+		</form>
+	</div>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/api.js"></script>
+		<script type="text/javascript"
+			src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script type="text/javascript">
+	  $(document).ready(function(){
+		    $('.tooltipped').tooltip({delay: 50});
+		  })
+	</script>
+</body>
+</html>

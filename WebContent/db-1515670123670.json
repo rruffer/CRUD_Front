@@ -1,0 +1,14 @@
+{
+  "produtos": [
+    {
+      "descricao": "Farinha",
+      "preco": "5",
+      "id": 2
+    },
+    {
+      "descricao": "Feijão",
+      "preco": "3.50",
+      "id": 3
+    }
+  ]
+}
