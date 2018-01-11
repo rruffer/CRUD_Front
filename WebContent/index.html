@@ -36,7 +36,7 @@
 			</div>
 			<br> 
 			<br>
-			<button class="btn waves-effect waves-light" ng-click="salvar(produto)">
+			<button class="btn waves-effect waves-light" onclick="document.getElementById('descricao').focus();" ng-click="salvar(produto)">
 				Salvar <i class="material-icons right">save</i>
 			</button>
 			<button class="waves-effect waves-teal btn" ng-click="cancelar()">
@@ -58,9 +58,12 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="produto in produtos track by $index">
-							<td ng-dblclick="editar(produto)">{{produto.id}}</td>
+<!-- 							<td ng-dblclick="editar(produto)">{{produto.id}}</td>
 							<td ng-dblclick="editar(produto)">{{produto.descricao}}</td>
-							<td ng-dblclick="editar(produto)">{{produto.preco}}</td>
+							<td ng-dblclick="editar(produto)">{{produto.preco}}</td> -->
+							<td ng-dblclick="editar(produto)"><span ng-bind="produto.id"></span></td>
+							<td ng-dblclick="editar(produto)"><span ng-bind="produto.descricao"></span></td>
+							<td ng-dblclick="editar(produto)"><span ng-bind="produto.preco"></span></td>
 							<td><a href="" class="tooltipped" data-position="top"
 								data-delay="50" data-tooltip="Editar Produto"
 								ng-click="editar(produto)"> <i class="material-icons">edit</i>

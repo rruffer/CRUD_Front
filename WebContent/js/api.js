@@ -39,8 +39,8 @@ app.controller("ProdutosController", function($scope, ProdutosServices) {
 
 app.service("ProdutosServices", function($http) {
 	
-	var api = "http://127.0.0.1:8080/GRUD_Back-0.0.1-SNAPSHOT/produtos";
-//	var api = "http://localhost:3000/produtos";
+//	var api = "http://127.0.0.1:8080/api/produtos";
+	var api = "http://localhost:3000/produtos";
 	
 	this.listar = function() {
 		return $http.get(api);
@@ -58,7 +58,7 @@ app.service("ProdutosServices", function($http) {
 	};
 	
 	this.excluir = function(produto) {
-		return $http.delete(api + "/" + produto.id, produto);
+		return $http.delete(api + "/" + produto.id);
 
 	};
 	
